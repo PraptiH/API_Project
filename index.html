@@ -8,6 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="scripts/script.js"></script>
     <title>PH-Tube</title>
+    <style>
+        .active{
+            background: #FF1F3D;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,7 +28,7 @@
 
         <!-- API Button -->
         <div id="btn-container" class="flex justify-center py-8 gap-4">
-            <button onclick="videos()" class="btn btn-md bg-[#FF1F3D] text-white">All</button>
+            <button id="btn-all" onclick="videos()" class="btn btn-md">All</button>
         </div>
     </header>
 
@@ -30,6 +36,8 @@
     <div id="video" class=" w-11/12 grid grid-cols-4 gap-4 mx-auto">
         
     </div>
+
+    
     <script src="scripts/index.js"></script>
 </body>
 
