@@ -36,6 +36,37 @@ function displayCategorie(categories){
     }
 }
 
+function loadVideoDetails(videoId){
+    console.log(videoId)
+    fetch(`https://openapi.programming-hero.com/api/phero-tube/video/${videoId}`)
+    .then(res=>res.json())
+    .then(data=>{
+        displayVideoDetails(data.video)
+    })
+}
+
+const displayVideoDetails = (video) =>{
+     console.log(video)
+     document.getElementById("video_details").showModal()
+     const modalContainer = document.getElementById("modal-container")
+     modalContainer.innerHTML = `
+     <div class="card bg-base-100">
+  <figure>
+    <img class="object-cover"
+      src="${video.thumbnail}"
+      alt="Shoes" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title text-2xl font-bold">${video.title}</h2>
+    <p>${video.description}</p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">Play</button>
+    </div>
+  </div>
+</div>`
+}
+
+
 
 function videos(){
     fetch("https://openapi.programming-hero.com/api/phero-tube/videos")
@@ -58,10 +89,9 @@ function displayVideo(videos){
     </div>`
     }
     for (const video of videos){
-        // console.log(video)
         const newVideo = document.createElement("div")
         newVideo.innerHTML=`
-        <div class="bg-base-100 ">
+        <div class="bg-base-100 grid">
             <figure class="relative">
                 <img class="rounded-xl w-full h-50 object-cover" src="${video.thumbnail}" alt="Shoes" />
                 <span class="absolute bottom-2 bg-black p-2 rounded-xl right-2 text-white">3hrs 56min ago</span>
@@ -70,7 +100,7 @@ function displayVideo(videos){
             <div class="flex gap-10 items-center px-0 py-5">
 
                 <div class="profile">
-                    <img class="rounded-full w-12 "
+                    <img class="rounded-full w-12 h-12 object-cover"
                         src="${video.authors[0].profile_picture}" />
                 </div>
                 <div class="Intro">
@@ -82,6 +112,7 @@ function displayVideo(videos){
                     <p class="text-gray-400">${video.others.views}</p>
                 </div>
             </div>
+            <button onclick= "loadVideoDetails('${video.video_id}')" class="btn btn-block">Show Details</button>
         </div>`
         videoContainer.append(newVideo)
     }
