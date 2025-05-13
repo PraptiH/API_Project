@@ -106,8 +106,10 @@ function displayVideo(videos){
                 <div class="Intro">
                     <h2 class="text-xl font-semibold">${video.title}</h2>
                     <p class="text-gray-400 flex gap-2">${video.authors[0].profile_name}
-                        <img class="w-6" src="https://img.icons8.com/?size=100&id=98A4yZTt9abw&format=png&color=000000"
-                            alt="">
+                    ${video.authors[0].verified===true ?
+                        `<img class="w-6" src="https://img.icons8.com/?size=100&id=98A4yZTt9abw&format=png&color=000000"
+                            alt=""></img>` : ''}
+        
                     </p>
                     <p class="text-gray-400">${video.others.views}</p>
                 </div>
