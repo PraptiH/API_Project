@@ -9,7 +9,7 @@
     <script src="scripts/script.js"></script>
     <title>PH-Tube</title>
     <style>
-        .active{
+        .active {
             background: #FF1F3D;
             color: white;
         }
@@ -21,8 +21,19 @@
         <nav class="w-11/12 m-auto">
             <div class="flex justify-around py-10 border-b-2 border-[#17171720]">
                 <img src="Logo.png" alt="">
-                <button class="btn btn-md">Sort by view</button>
-                <button class="btn btn-md bg-[#FF1F3D] text-white">Blog</button>
+                <div>
+                    <label class="input">
+                        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                                stroke="currentColor">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </g>
+                        </svg>
+                        <input id="search-input" type="search" required placeholder="Search" />
+                    </label>
+                </div>
+                <button class="btn btn-md bg-[#FF1F3D] text-white">Sort by view</button>
             </div>
         </nav>
 
@@ -34,24 +45,24 @@
 
     <!-- Video -->
     <div id="video" class=" w-11/12 grid grid-cols-4 gap-4 mx-auto">
-        
+
     </div>
 
     <!-- Open the modal using ID.showModal() method -->
-<button class="btn" onclick="video_details.showModal()">open modal</button>
-<dialog id="video_details" class="modal">
-  <div class="modal-box">
-    <div id="modal-container">
-        
-    </div>
-    <div class="modal-action">
-      <form method="dialog">
-        <!-- if there is a button in form, it will close the modal -->
-        <button class="btn">Close</button>
-      </form>
-    </div>
-  </div>
-</dialog>
+    <button class="btn" onclick="video_details.showModal()">open modal</button>
+    <dialog id="video_details" class="modal">
+        <div class="modal-box">
+            <div id="modal-container">
+
+            </div>
+            <div class="modal-action">
+                <form method="dialog">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
     <script src="scripts/index.js"></script>
 </body>
 
